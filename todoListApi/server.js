@@ -1,3 +1,4 @@
+require('dotenv').config({path: 'coneccion.env'});
 
 var express = require('express'),
   app = express(),
@@ -8,7 +9,11 @@ var express = require('express'),
   
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://martha:avatar65@cluster0.ouriu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'); 
+mongoose.connect(process.env.DB_MONGO, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}); 
 ///''mongodb:///Tododb''
 
 
