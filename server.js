@@ -1,4 +1,4 @@
-require('dotenv').config({path: 'coneccion.env'});
+// require('dotenv').config({path: 'coneccion.env'});
 
 var express = require('express'),
   app = express(),
@@ -9,11 +9,18 @@ var express = require('express'),
   
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB_MONGO, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-}); 
+
+ if(mongoose.connect(mongoDB)){
+        console.log('bd conectada');
+      }else{
+        console.log(error);
+      console.log('bd error');
+      process.exit(1); //detenemos la app 
+      }
+      
+
+      
+
 ///''mongodb:///Tododb''
 
 
