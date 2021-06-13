@@ -26,7 +26,7 @@ routes(app);
 
 app.listen(port);
 app.use(function(req, res) {
-  res.status(404).send({url:'La ruta '+ req.originalUrl + ' No existe'})
+  res.status(404).send({url:'La ruta '+ req.originalUrl + ' No existe, para get intenta con /tasks'})
 });
 
 
